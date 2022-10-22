@@ -5,9 +5,8 @@ import { Preview, MoviesList } from "../components";
 export function Movies() {
   return (
     <View style={styles.container}>
-      <Text>Movies</Text>
-      <Preview />
       <MoviesList />
+      <Preview />
     </View>
   );
 }
