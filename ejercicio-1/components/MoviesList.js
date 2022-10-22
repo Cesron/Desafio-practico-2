@@ -45,16 +45,15 @@ const styles = StyleSheet.create({
   },
 
   listContainer: {
-    width: 500,
+    width: 100,
     flexDirection: "row",
-    justifyContent: "space-around",
     alignContent: "center",
+    marginHorizontal: 5,
   },
 
   imageList: {
-    width: "30%",
+    width: "100%",
     height: 200,
-    marginLeft: 60,
   },
   container: {
     flex: 1,
@@ -75,43 +74,11 @@ const styles = StyleSheet.create({
   },
 });
 
-const DATA = [
-  {
-    title: "Main dishes",
-    data: ["Pizza", "Burger", "Risotto"],
-  },
-  {
-    title: "Sides",
-    data: ["French Fries", "Onion Rings", "Fried Shrimps"],
-  },
-  {
-    title: "Drinks",
-    data: ["Water", "Coke", "Beer"],
-  },
-  {
-    title: "Desserts",
-    data: ["Cheese Cake", "Ice Cream"],
-  },
-];
-
 const Item = ({ title }) => (
   <View style={styles.item}>
     <Text style={styles.title}>{title}</Text>
   </View>
 );
-
-const DataImg = [
-  {
-    name: "Prueba",
-    data: ["Spiderman", "Avengers", "Asustados"],
-    image: "require(./images/aladdin.jpg)",
-  },
-  {
-    name: "Hola",
-    data: ["El hombre arana", "Vengadores", "Hola que hace"],
-    image: "require(./images/aladdin.jpg)",
-  },
-];
 
 /* const Item = ({ name }) => (
   <View>
@@ -119,7 +86,7 @@ const DataImg = [
   </View>
 ); */
 
-export function MoviesList() {
+export function MoviesList({ swiperdata, moviesData }) {
   return (
     <>
       <View style={styles.swiperContainer}>
@@ -129,101 +96,27 @@ export function MoviesList() {
           autoplay
           autoplayTimeout={3.5}
         >
-          <View style={styles.slide1}>
-            <Image
-              style={styles.imageSwiper}
-              source={require("../images/formadelagua.jpg")}
-            />
-          </View>
-          <View style={styles.slide2}>
-            <Image
-              style={styles.imageSwiper}
-              source={require("../images/interstelar.jpg")}
-            />
-          </View>
-          <View style={styles.slide3}>
-            <Image
-              style={styles.imageSwiper}
-              source={require("../images/int_furiaTitanes_1000px_horizontal2.jpg")}
-            />
-          </View>
-          <View style={styles.slide3}>
-            <Image
-              style={styles.imageSwiper}
-              source={require("../images/malditos-vecinos-2-horizontal-1_b1fw.jpg")}
-            />
-          </View>
-          <View style={styles.slide3}>
-            <Image
-              style={styles.imageSwiper}
-              source={require("../images/int_furiaTitanes_1000px_horizontal2.jpg")}
-            />
-          </View>
+          {swiperdata.map((value, key) => (
+            <View key={key} style={styles.slide1}>
+              <Image style={styles.imageSwiper} source={value.image} />
+              <Text>{value.image}</Text>
+            </View>
+          ))}
         </Swiper>
       </View>
       <ScrollView>
-        {/* <SectionList
-          sections={DataImg}
-          keyExtractor={(item, index) => item + index}
-          renderItem={({ item }) => <Item title={item} />}
-          renderSectionHeader={({ section: { name } }) => <Text>{name}</Text>}
-        />
-        <SectionList
-          sections={DATA}
-          keyExtractor={(item, index) => item + index}
-          renderItem={({ item }) => <Item title={item} />}
-          renderSectionHeader={({ section: { title } }) => (
-            <Text style={styles.header}>{title}</Text>
-          )}
-        /> */}
-        <Text>Comedia</Text>
-        <View style={styles.listContainer}>
-          <View></View>
-          <Image
-            style={styles.imageList}
-            source={require("../images/Vformadelagua.jpg")}
-          />
-          <Image
-            style={styles.imageList}
-            source={require("../images/Vformadelagua.jpg")}
-          />
-          <Image
-            style={styles.imageList}
-            source={require("../images/Vformadelagua.jpg")}
-          />
-        </View>
-        <Text>Comedia</Text>
-        <View style={styles.listContainer}>
-          <View></View>
-          <Image
-            style={styles.imageList}
-            source={require("../images/Vformadelagua.jpg")}
-          />
-          <Image
-            style={styles.imageList}
-            source={require("../images/Vformadelagua.jpg")}
-          />
-          <Image
-            style={styles.imageList}
-            source={require("../images/Vformadelagua.jpg")}
-          />
-        </View>
-        <Text>Comedia</Text>
-        <View style={styles.listContainer}>
-          <View></View>
-          <Image
-            style={styles.imageList}
-            source={require("../images/Vformadelagua.jpg")}
-          />
-          <Image
-            style={styles.imageList}
-            source={require("../images/Vformadelagua.jpg")}
-          />
-          <Image
-            style={styles.imageList}
-            source={require("../images/Vformadelagua.jpg")}
-          />
-        </View>
+        {moviesData.map((value, key) => (
+          <View key={key}>
+            <Text>{value.category}</Text>
+            <ScrollView horizontal>
+              {value.data.map((value, key) => (
+                <View style={styles.listContainer} key={key}>
+                  <Image style={styles.imageList} source={value.image} />
+                </View>
+              ))}
+            </ScrollView>
+          </View>
+        ))}
       </ScrollView>
     </>
   );
