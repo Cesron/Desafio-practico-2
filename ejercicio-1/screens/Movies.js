@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet } from "react-native";
 import React from "react";
-import { Preview, MoviesList } from "../components";
+import { StyleSheet, Text, View } from "react-native";
+import { MoviesList } from "../components";
 
 const DataImg = [
   {
@@ -21,17 +21,17 @@ const moviesData = [
       {
         title: "hola",
         image: require("../images/AlertaRoja.jpg"),
-        description: "description",
+        description: "test",
       },
       {
-        title: "hola",
+        title: "hola 2",
         image: require("../images/deadpool.jpg"),
-        description: "description",
+        description: "test 2",
       },
       {
         title: "hola",
         image: require("../images/americanpie.jpg"),
-        description: "description",
+        description: "test 3",
       },
       {
         title: "hola",

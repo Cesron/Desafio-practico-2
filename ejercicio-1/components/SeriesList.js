@@ -60,6 +60,8 @@ const styles = StyleSheet.create({
   },
 });
 export function SeriesList({ swiperdata, seriesData }) {
+  const { serieData, setSerieData } = useDataContext();
+
   return (
     <>
       <View style={styles.swiperContainer}>
@@ -76,11 +78,11 @@ export function SeriesList({ swiperdata, seriesData }) {
           ))}
         </Swiper>
       </View>
-      <ScrollView style={{ width: 550 }}>
+      <ScrollView style={{ width: "100%" }}>
         {seriesData.map((value, key) => (
           <View
             key={key}
-            style={{ alignItems: "center", justifyContent: "space-around" }}
+            style={{ alignItems: "flex-start", justifyContent: "space-around" }}
           >
             <Text style={styles.categoryTitle}>{value.category}</Text>
             <View>

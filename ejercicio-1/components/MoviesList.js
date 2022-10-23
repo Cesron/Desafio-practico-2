@@ -5,9 +5,11 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TouchableWithoutFeedback,
   View,
 } from "react-native";
 import Swiper from "react-native-swiper";
+import { useDataContext } from "../context/DataContext";
 
 const styles = StyleSheet.create({
   wrapper: {},
@@ -57,6 +59,8 @@ const styles = StyleSheet.create({
 });
 
 export function MoviesList({ swiperdata, moviesData }) {
+  const { movieData, setMovieData } = useDataContext();
+
   return (
     <>
       <View style={styles.swiperContainer}>
@@ -72,16 +76,32 @@ export function MoviesList({ swiperdata, moviesData }) {
             </View>
           ))}
         </Swiper>
+        <Text>{JSON.stringify(movieData)}</Text>
       </View>
       <ScrollView style={{ padding: 15 }}>
-        {moviesData.map((value, key) => (
+        {moviesData.map((value1, key) => (
           <View key={key} style={{ alignItems: "center" }}>
-            <Text style={styles.categoryTitle}>{value.category}</Text>
+            <Text style={styles.categoryTitle}>{value1.category}</Text>
             <ScrollView horizontal>
-              {value.data.map((value, key) => (
-                <View style={styles.listContainer} key={key}>
-                  <Image style={styles.imageList} source={value.image} />
-                </View>
+              {value1.data.map((value, key) => (
+                <TouchableWithoutFeedback
+                  key={key}
+                  onPress={() =>
+                    setMovieData({
+                      category: value1.category,
+                      data: {
+                        title: value.title,
+                        image: value.image,
+                        description: value.description,
+                        trailer: value.trailer,
+                      },
+                    })
+                  }
+                >
+                  <View style={styles.listContainer}>
+                    <Image style={styles.imageList} source={value.image} />
+                  </View>
+                </TouchableWithoutFeedback>
               ))}
             </ScrollView>
           </View>
