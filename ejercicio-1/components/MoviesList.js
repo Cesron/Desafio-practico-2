@@ -58,8 +58,8 @@ const styles = StyleSheet.create({
   },
 });
 
-export function MoviesList({ swiperdata, moviesData }) {
-  const { movieData, setMovieData } = useDataContext();
+export function MoviesList({ swiperdata, moviesData, navigation }) {
+  const { setMovieData } = useDataContext();
 
   return (
     <>
@@ -76,7 +76,6 @@ export function MoviesList({ swiperdata, moviesData }) {
             </View>
           ))}
         </Swiper>
-        <Text>{JSON.stringify(movieData)}</Text>
       </View>
       <ScrollView style={{ padding: 15 }}>
         {moviesData.map((value1, key) => (
@@ -86,7 +85,7 @@ export function MoviesList({ swiperdata, moviesData }) {
               {value1.data.map((value, key) => (
                 <TouchableWithoutFeedback
                   key={key}
-                  onPress={() =>
+                  onPress={() => {
                     setMovieData({
                       category: value1.category,
                       data: {
@@ -95,8 +94,9 @@ export function MoviesList({ swiperdata, moviesData }) {
                         description: value.description,
                         trailer: value.trailer,
                       },
-                    })
-                  }
+                    });
+                    navigation.navigate("Preview");
+                  }}
                 >
                   <View style={styles.listContainer}>
                     <Image style={styles.imageList} source={value.image} />

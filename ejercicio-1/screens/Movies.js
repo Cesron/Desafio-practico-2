@@ -122,10 +122,14 @@ const moviesData = [
   },
 ];
 
-export function Movies() {
+export function Movies({ navigation }) {
   return (
     <View style={styles.container}>
-      <MoviesList swiperdata={DataImg} moviesData={moviesData} />
+      <MoviesList
+        swiperdata={DataImg}
+        moviesData={moviesData}
+        navigation={navigation}
+      />
     </View>
   );
 }

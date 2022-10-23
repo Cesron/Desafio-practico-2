@@ -5,9 +5,11 @@ import {
   StatusBar,
   Image,
   ScrollView,
+  TouchableWithoutFeedback,
 } from "react-native";
 import React from "react";
 import Swiper from "react-native-swiper";
+import { useDataContext } from "../context/DataContext";
 
 const styles = StyleSheet.create({
   wrapper: {},
@@ -59,7 +61,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 });
-export function SeriesList({ swiperdata, seriesData }) {
+export function SeriesList({ swiperdata, seriesData, navigation }) {
   const { serieData, setSerieData } = useDataContext();
 
   return (
@@ -77,39 +79,55 @@ export function SeriesList({ swiperdata, seriesData }) {
             </View>
           ))}
         </Swiper>
+        <Text>{JSON.stringify(serieData)}</Text>
       </View>
       <ScrollView style={{ width: "100%" }}>
-        {seriesData.map((value, key) => (
+        {seriesData.map((value1, key) => (
           <View
             key={key}
             style={{ alignItems: "flex-start", justifyContent: "space-around" }}
           >
-            <Text style={styles.categoryTitle}>{value.category}</Text>
+            <Text style={styles.categoryTitle}>{value1.category}</Text>
             <View>
-              {value.data.map((value, key) => (
-                <View style={styles.listContainer} key={key}>
-                  <Image style={styles.imageList} source={value.image} />
-                  <View
-                    style={{
-                      marginLeft: 50,
-                      marginVertical: 20,
-                      width: 100,
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Text
+              {value1.data.map((value, key) => (
+                <TouchableWithoutFeedback
+                  key={key}
+                  onPress={() => {
+                    setSerieData({
+                      category: value1.category,
+                      data: {
+                        title: value.title,
+                        image: value.image,
+                        seasons: value.description,
+                      },
+                    });
+                    navigation.navigate("Preview");
+                  }}
+                >
+                  <View style={styles.listContainer}>
+                    <Image style={styles.imageList} source={value.image} />
+                    <View
                       style={{
-                        marginBottom: 20,
-                        fontWeight: "bold",
-                        textAlign: "center",
+                        marginLeft: 50,
+                        marginVertical: 20,
+                        width: 100,
+                        alignItems: "center",
+                        justifyContent: "center",
                       }}
                     >
-                      {value.title}
-                    </Text>
-                    <Text>* {value.description}</Text>
+                      <Text
+                        style={{
+                          marginBottom: 20,
+                          fontWeight: "bold",
+                          textAlign: "center",
+                        }}
+                      >
+                        {value.title}
+                      </Text>
+                      <Text>* {value.description}</Text>
+                    </View>
                   </View>
-                </View>
+                </TouchableWithoutFeedback>
               ))}
             </View>
           </View>

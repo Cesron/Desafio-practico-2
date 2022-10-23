@@ -20,6 +20,7 @@ export const DataContextProvider = ({ children }) => {
       image: "",
       description: "",
       seasons: "",
+      trailer: "",
     },
   });
 

@@ -120,10 +120,14 @@ const seriesData = [
     ],
   },
 ];
-export function Series() {
+export function Series({ navigation }) {
   return (
     <View style={styles.container}>
-      <SeriesList swiperdata={DataImg} seriesData={seriesData} />
+      <SeriesList
+        swiperdata={DataImg}
+        seriesData={seriesData}
+        navigation={navigation}
+      />
     </View>
   );
 }

@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { CoomingSoon, Movies, Series } from "../screens";
+import MovieStack from "./MovieStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -16,8 +17,8 @@ export default function Navigation() {
         }}
       >
         <Tab.Screen
-          name="Movies"
-          component={Movies}
+          name="MovieStack"
+          component={MovieStack}
           options={{
             tabBarIcon: ({}) => (
               <Ionicons name="videocam" size={24} color="black" />
