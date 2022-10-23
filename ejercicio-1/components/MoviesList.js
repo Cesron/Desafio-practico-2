@@ -1,28 +1,17 @@
-import {
-  View,
-  Text,
-  ScrollView,
-  SectionList,
-  StyleSheet,
-  Image,
-  StatusBar,
-} from "react-native";
 import React from "react";
+import {
+  Image,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import Swiper from "react-native-swiper";
 
 const styles = StyleSheet.create({
   wrapper: {},
   slide1: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  slide2: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  slide3: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -60,31 +49,12 @@ const styles = StyleSheet.create({
     paddingTop: StatusBar.currentHeight,
     marginHorizontal: 16,
   },
-  item: {
-    backgroundColor: "#f9c2ff",
-    padding: 20,
-    marginVertical: 8,
-  },
-  header: {
-    fontSize: 32,
-    backgroundColor: "#fff",
-  },
-  title: {
-    fontSize: 24,
+  categoryTitle: {
+    marginVertical: 10,
+    fontSize: 18,
+    fontWeight: "bold",
   },
 });
-
-const Item = ({ title }) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
-  </View>
-);
-
-/* const Item = ({ name }) => (
-  <View>
-    <Text>{name}</Text>
-  </View>
-); */
 
 export function MoviesList({ swiperdata, moviesData }) {
   return (
@@ -99,15 +69,14 @@ export function MoviesList({ swiperdata, moviesData }) {
           {swiperdata.map((value, key) => (
             <View key={key} style={styles.slide1}>
               <Image style={styles.imageSwiper} source={value.image} />
-              <Text>{value.image}</Text>
             </View>
           ))}
         </Swiper>
       </View>
-      <ScrollView>
+      <ScrollView style={{ padding: 15 }}>
         {moviesData.map((value, key) => (
-          <View key={key}>
-            <Text>{value.category}</Text>
+          <View key={key} style={{ alignItems: "center" }}>
+            <Text style={styles.categoryTitle}>{value.category}</Text>
             <ScrollView horizontal>
               {value.data.map((value, key) => (
                 <View style={styles.listContainer} key={key}>

@@ -4,14 +4,13 @@ import { Preview, MoviesList } from "../components";
 
 const DataImg = [
   {
-    name: "Prueba",
-    data: ["Spiderman", "Avengers", "Asustados"],
-    image: require("../images/venom.jpg"),
+    image: require("../images/formadelagua.jpg"),
   },
   {
-    name: "Hola",
-    data: ["El hombre arana", "Vengadores", "Hola que hace"],
-    image: require("../images/engame.jpg"),
+    image: require("../images/malditos-vecinos-2-horizontal-1_b1fw.jpg"),
+  },
+  {
+    image: require("../images/interstelar.jpg"),
   },
 ];
 
@@ -61,27 +60,27 @@ const moviesData = [
       },
       {
         title: "hola",
-        image: require("../images/engame.jpg"),
+        image: require("../images/venom.jpg"),
         description: "description",
       },
       {
         title: "hola",
-        image: require("../images/engame.jpg"),
+        image: require("../images/fyf.jpg"),
         description: "description",
       },
       {
         title: "hola",
-        image: require("../images/engame.jpg"),
+        image: require("../images/hasta_el_ultimo_hombre-cartel-7198.jpg"),
         description: "description",
       },
       {
         title: "hola",
-        image: require("../images/engame.jpg"),
+        image: require("../images/interstelar.jpg"),
         description: "description",
       },
       {
         title: "hola",
-        image: require("../images/engame.jpg"),
+        image: require("../images/int_furiaTitanes_1000px_horizontal2.jpg"),
         description: "description",
       },
     ],
@@ -127,7 +126,6 @@ export function Movies() {
   return (
     <View style={styles.container}>
       <MoviesList swiperdata={DataImg} moviesData={moviesData} />
-      <Preview />
     </View>
   );
 }
