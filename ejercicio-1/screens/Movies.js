@@ -19,9 +19,10 @@ const moviesData = [
     category: "Comedia",
     data: [
       {
-        title: "hola",
+        title: "Alerta Roja",
         image: require("../images/AlertaRoja.jpg"),
-        description: "test",
+        description:
+          "John Hartley, agente de la Interpol, no tendrá otro remedio que aliarse con el ladrón de arte más célebre de todos los tiempos, Nolan Booth, para capturar a la ladrona de arte más buscada del presente: la seductora y peligrosa Sarah Black.",
         trailer: "_L0DMAFBEjs",
       },
       {

@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   description: {
-    fontSize: 25,
+    fontSize: 16,
   },
 });
 
@@ -31,7 +31,7 @@ export default function PreviewSeries({}) {
         videoId={serieData.data.trailer}
       />
       <Text style={styles.title}> {serieData.data.title} </Text>
-      <Text style={styles.description}> {serieData.data.description} </Text>
+      <Text> {serieData.data.description} </Text>
     </View>
   );
 }
