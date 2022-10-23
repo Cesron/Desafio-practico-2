@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Preview({}) {
-  const { movieData } = useDataContext();
+export default function PreviewSeries({}) {
+  const { serieData } = useDataContext();
 
   return (
     <View style={styles.container}>
@@ -28,10 +28,10 @@ export default function Preview({}) {
         height={300}
         width={500}
         play={true}
-        videoId={movieData.data.trailer}
+        videoId={serieData.data.trailer}
       />
-      <Text style={styles.title}> {movieData.data.title} </Text>
-      <Text style={styles.description}> {movieData.data.description} </Text>
+      <Text style={styles.title}> {serieData.data.title} </Text>
+      <Text style={styles.description}> {serieData.data.description} </Text>
     </View>
   );
 }

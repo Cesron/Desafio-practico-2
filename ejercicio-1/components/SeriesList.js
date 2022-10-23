@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   },
 });
 export function SeriesList({ swiperdata, seriesData, navigation }) {
-  const { serieData, setSerieData } = useDataContext();
+  const { setSerieData } = useDataContext();
 
   return (
     <>
@@ -79,7 +79,6 @@ export function SeriesList({ swiperdata, seriesData, navigation }) {
             </View>
           ))}
         </Swiper>
-        <Text>{JSON.stringify(serieData)}</Text>
       </View>
       <ScrollView style={{ width: "100%" }}>
         {seriesData.map((value1, key) => (
@@ -99,9 +98,10 @@ export function SeriesList({ swiperdata, seriesData, navigation }) {
                         title: value.title,
                         image: value.image,
                         seasons: value.description,
+                        trailer: value.trailer,
                       },
                     });
-                    navigation.navigate("Preview");
+                    navigation.navigate("PreviewSeries");
                   }}
                 >
                   <View style={styles.listContainer}>
