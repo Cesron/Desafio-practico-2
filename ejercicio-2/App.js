@@ -70,7 +70,6 @@ export default function App() {
         </Picker>
         <Text style={styles.title} category="h1">
           {city}
-          TE VOY ASEREL ANALSEXXXXXXXXX
         </Text>
         <Image
           style={styles.logo}
