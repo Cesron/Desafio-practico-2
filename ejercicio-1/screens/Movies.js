@@ -20,32 +20,32 @@ const moviesData = [
     data: [
       {
         title: "hola",
-        image: require("../images/engame.jpg"),
+        image: require("../images/AlertaRoja.jpg"),
         description: "description",
       },
       {
         title: "hola",
-        image: require("../images/engame.jpg"),
+        image: require("../images/deadpool.jpg"),
         description: "description",
       },
       {
         title: "hola",
-        image: require("../images/engame.jpg"),
+        image: require("../images/americanpie.jpg"),
         description: "description",
       },
       {
         title: "hola",
-        image: require("../images/engame.jpg"),
+        image: require("../images/Supercool.webp"),
         description: "description",
       },
       {
         title: "hola",
-        image: require("../images/engame.jpg"),
+        image: require("../images/poweraustin.jpg"),
         description: "description",
       },
       {
         title: "hola",
-        image: require("../images/engame.jpg"),
+        image: require("../images/pasoayer.webp"),
         description: "description",
       },
     ],
@@ -90,32 +90,32 @@ const moviesData = [
     data: [
       {
         title: "hola",
-        image: require("../images/engame.jpg"),
+        image: require("../images/002_m.jpg"),
         description: "description",
       },
       {
         title: "hola",
-        image: require("../images/engame.jpg"),
+        image: require("../images/antesdeti.jpg"),
         description: "description",
       },
       {
         title: "hola",
-        image: require("../images/engame.jpg"),
+        image: require("../images/primeravez.jpg"),
         description: "description",
       },
       {
         title: "hola",
-        image: require("../images/engame.jpg"),
+        image: require("../images/lo_mejor_de_mi-cartel-5819.jpg"),
         description: "description",
       },
       {
         title: "hola",
-        image: require("../images/engame.jpg"),
+        image: require("../images/20098981.jpg"),
         description: "description",
       },
       {
         title: "hola",
-        image: require("../images/engame.jpg"),
+        image: require("../images/casalago.jpg"),
         description: "description",
       },
     ],
