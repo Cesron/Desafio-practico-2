@@ -9,6 +9,7 @@ const cities = [
   "Apopa",
   "Ayutuxtepeque",
   "Ciudad Delgado",
+  "Cojutepeque",
   "Cuscatancingo",
   "El Paisnal",
   "Guazapa",

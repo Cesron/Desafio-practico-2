@@ -4,7 +4,7 @@ import React from "react";
 export function Preview() {
   return (
     <View>
-      <Text>Preview</Text>
+      <Text></Text>
     </View>
   );
 }
